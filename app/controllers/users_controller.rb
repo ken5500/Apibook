@@ -1,6 +1,7 @@
+module V1
 class UsersController < ApplicationController
   before_action :set_book, only: [:show, :destroy, :update]
-
+  before_create :generate_api_key
     def index
       books = Book.preload(:author, :book_copies).paginate(page: params[:page])
       render json: books, meta: pagination(books), adapter: :json
@@ -42,5 +43,4 @@ class UsersController < ApplicationController
       params.require(:book).permit(:title, :author_id)
     end
   end
-end
 end

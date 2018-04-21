@@ -1,3 +1,4 @@
+module V1
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :destroy, :update]
 
@@ -42,5 +43,4 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :author_id)
     end
   end
-end
 end

@@ -1,3 +1,4 @@
+module V1
 class BookcopiesController <
   before_action :set_book_copy, only: [:show, :destroy, :update]
 
@@ -89,6 +90,4 @@ module V1
       params.require(:book).permit(:title, :author_id)
     end
   end
-end
-
 end
